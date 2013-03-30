@@ -16,5 +16,6 @@ app.use('/hello4', require('./hello/hello4.js'));
 app.use('/test/shell', require('./test/shell.js'));
 
 app.use('/msgrelay', require('./msgrelay/app.js'));
+app.use('/uftt/bootstrap', require('./uftt/app.js'));
 
 app.listen(80);

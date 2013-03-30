@@ -7,11 +7,11 @@ module.exports = function(req, res) {
 	var output = "";
 
 	ls.stdout.on('data', function (data) {
-	output += ('\n[stdout]:\n' + data);
+		output += ('\n[stdout]:\n' + data);
 	});
 
 	ls.stderr.on('data', function (data) {
-	output += ('\n[stderr]:\n ' + data) + "\n"
+		output += ('\n[stderr]:\n' + data);
 	});
 
 	ls.on('close', function (code) {

@@ -34,7 +34,7 @@ var appfunc = function(req, res) {
 			class: query.class,
 			type: query.type,
 			port: +query.port || 47189,
-			address: process.env.VMC_APP_PORT ? : req.header('x-forwarded-for') : req.socket.remoteAddress
+			address: (process.env.VMC_APP_PORT ? req.header('x-forwarded-for') : req.socket.remoteAddress)
 
 		});
 	}

@@ -7,15 +7,15 @@ module.exports = function(req, res) {
 	var output = "";
 
 	ls.stdout.on('data', function (data) {
-	output += ('stdout: ' + data) + "\n";
+	output += ('\n[stdout]:\n' + data);
 	});
 
 	ls.stderr.on('data', function (data) {
-	output += ('stderr: ' + data) + "\n"
+	output += ('\n[stderr]:\n ' + data) + "\n"
 	});
 
 	ls.on('close', function (code) {
-		output += 'child process exited with code ' + code;
+		output += '\n[done]: child process exited with code ' + code + "\n";
 		res.send(output);
 	});
 }

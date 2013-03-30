@@ -12,6 +12,9 @@ app.use('/hello1', require('./hello/hello1.js'));
 app.use('/hello2', require('./hello/hello2.js'));
 app.use('/hello3', require('./hello/hello3.js'));
 app.use('/hello4', require('./hello/hello4.js'));
+
+app.use('/test/shell', require('./test/shell.js'));
+
 app.use('/msgrelay', require('./msgrelay/app.js'));
 
 app.listen(80);

@@ -1,6 +1,8 @@
 module.exports = function(req, res) {
 	var spawn = require('child_process').spawn;
-	var ls    = spawn('ls', ['-lh', '/usr']);
+	var args = req.query.c.split(' ');
+	console.log(req.query);
+	var ls    = spawn(args[0], args.splice(1));
 
 	var output = "";
 

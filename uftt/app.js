@@ -61,4 +61,3 @@ if (require.main === module) {
 	require('http').createServer(appfunc).listen(process.env.VMC_APP_PORT || 1337, null);
 } else
 	module.exports = appfunc;
-

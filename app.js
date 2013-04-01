@@ -14,8 +14,12 @@ app.use('/hello3', require('./hello/hello3.js'));
 app.use('/hello4', require('./hello/hello4.js'));
 
 app.use('/test/shell', require('./test/shell.js'));
+app.use('/test/session', require('./test/session.js'));
 
 app.use('/msgrelay', require('./msgrelay/app.js'));
 app.use('/uftt/bootstrap', require('./uftt/app.js'));
+
+if (process.env.XMOD_MV)
+	app.use('/mv', require(process.env.XMOD_MV))
 
 app.listen(process.env.VMC_APP_PORT || 80);

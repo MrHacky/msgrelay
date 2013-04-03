@@ -43,7 +43,7 @@ var appfunc = function(req, res) {
 	var response = { status: "OK"};
 
 	if (query.type == "announce") {
-		var uid = crypto.randomBytes(4).readUInt32LE(0);
+		var uid = query.uid || crypto.randomBytes(4).readUInt32LE(0);
 		var gid = query.gid;
 
 		msgs.push({

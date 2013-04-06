@@ -76,8 +76,12 @@ function onPeerMessage(peer, msg)
 	if (msg.type == 'share') {
 		var contentdiv = document.getElementById('content');
 		var domnode = contentdiv.appendChild(document.createElement('a'));
-		domnode.innerHTML = msg.name;
-		domnode.addEventListener('click', function() {
+		domnode.innerHTML = "DOWNLOAD: " + msg.name;
+		domnode.href = '#';
+		domnode.addEventListener('click', function(evt) {
+			evt.stopPropagation();
+			evt.preventDefault();
+			domnode.parentNode.removeChild(domnode);
 			peer.datachannel.send(JSON.stringify({
 				'type': 'getfile',
 				'path': msg.name
@@ -96,7 +100,7 @@ function onPeerMessage(peer, msg)
 	} else if (msg.type == 'filedata') {
 		var contentdiv = document.getElementById('content');
 		var domnode = contentdiv.appendChild(document.createElement('a'));
-		domnode.innerHTML = msg.path;
+		domnode.innerHTML = "SAVE: " + msg.path;
 		domnode.href = msg.data;
 		domnode.download = msg.path;
 	}
